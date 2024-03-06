@@ -1,5 +1,5 @@
 const express = require("express");
-const generateAQuote = require("./quoteGenerator");
+const generateAQuote = require("./quote");
 
 const app = express();
 
@@ -11,12 +11,12 @@ app.get("/api/quote", (req, res) => {
 
 // Define a GET route to generate quote from a specific category
 app.get("/api/quote/:category", (req, res) => {
-    const quote = generateRandomQuote(req.params.category);
+    const quote = generateAQuote(req.params.category);
     res.json({ quote });
   });
 
-  
+
     // Start the server
-    app.listen(3000, () => {
+    app.listen(8000, () => {
       console.log("Server listening on port 3000");
     });

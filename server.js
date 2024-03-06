@@ -8,7 +8,15 @@ app.get("/api/quote", (req, res) => {
     res.json({quote})
 })
 
-// Start the server
-app.listen(3000, () => {
-  console.log("Server listening on port 3000");
-});
+
+// Define a GET route to generate quote from a specific category
+app.get("/api/quote/:category", (req, res) => {
+    const quote = generateRandomQuote(req.params.category);
+    res.json({ quote });
+  });
+
+  
+    // Start the server
+    app.listen(3000, () => {
+      console.log("Server listening on port 3000");
+    });
